@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>วิเคราะห์นพลักษณ์</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="input-panel" aria-labelledby="app-title">
+        <div class="brand-row">
+          <div class="mark" aria-hidden="true">9</div>
+          <div>
+            <p class="eyebrow">enneagram playful reading</p>
+            <h1 id="app-title">วิเคราะห์นพลักษณ์จากวันเกิด</h1>
+          </div>
+        </div>
+
+        <form id="profile-form" class="profile-form">
+          <label>
+            <span>ชื่อจริง</span>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="เช่น ณรงค์ชัย" required />
+          </label>
+
+          <div class="date-grid">
+            <label>
+              <span>วันเกิด</span>
+              <input id="birthDay" name="birthDay" type="number" min="1" max="31" placeholder="23" required />
+            </label>
+            <label>
+              <span>เดือนเกิด</span>
+              <select id="birthMonth" name="birthMonth" required>
+                <option value="">เลือกเดือน</option>
+                <option value="1">มกราคม</option>
+                <option value="2">กุมภาพันธ์</option>
+                <option value="3">มีนาคม</option>
+                <option value="4">เมษายน</option>
+                <option value="5">พฤษภาคม</option>
+                <option value="6">มิถุนายน</option>
+                <option value="7">กรกฎาคม</option>
+                <option value="8">สิงหาคม</option>
+                <option value="9">กันยายน</option>
+                <option value="10">ตุลาคม</option>
+                <option value="11">พฤศจิกายน</option>
+                <option value="12">ธันวาคม</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span>ราศีเกิด</span>
+            <select id="zodiac" name="zodiac" required>
+              <option value="">เลือกราศี</option>
+              <option value="aries">เมษ</option>
+              <option value="taurus">พฤษภ</option>
+              <option value="gemini">เมถุน</option>
+              <option value="cancer">กรกฎ</option>
+              <option value="leo">สิงห์</option>
+              <option value="virgo">กันย์</option>
+              <option value="libra">ตุล</option>
+              <option value="scorpio">พิจิก</option>
+              <option value="sagittarius">ธนู</option>
+              <option value="capricorn">มังกร</option>
+              <option value="aquarius">กุมภ์</option>
+              <option value="pisces">มีน</option>
+            </select>
+          </label>
+
+          <button type="submit">วิเคราะห์บุคลิกภาพ</button>
+          <p id="form-error" class="form-error" role="alert"></p>
+        </form>
+
+        <div class="note">
+          เครื่องมือนี้เป็นการอ่านเชิงสนุกและสะท้อนตัวตน ไม่ใช่แบบทดสอบทางจิตวิทยาหรือการวินิจฉัย
+        </div>
+      </section>
+
+      <section class="result-panel" aria-live="polite">
+        <div id="empty-state" class="empty-state">
+          <div class="preview-orbit" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <h2>กรอกข้อมูลเพื่อเปิดแผนที่บุคลิกภาพ</h2>
+          <p>ผลลัพธ์จะแสดงนพลักษณ์หลัก ปีก คะแนนทั้ง 9 แบบ และภาพคาแรกเตอร์ประจำบุคลิกของคุณ</p>
+        </div>
+
+        <article id="analysis-result" class="analysis-result hidden">
+          <div class="result-hero">
+            <div id="avatar" class="avatar" aria-hidden="true"></div>
+            <div>
+              <p id="result-kicker" class="eyebrow"></p>
+              <h2 id="result-title"></h2>
+              <p id="result-summary" class="summary"></p>
+            </div>
+          </div>
+
+          <div class="insight-grid">
+            <section>
+              <h3>แก่นบุคลิก</h3>
+              <p id="core-text"></p>
+            </section>
+            <section>
+              <h3>จุดแข็ง</h3>
+              <ul id="strength-list"></ul>
+            </section>
+            <section>
+              <h3>จุดระวัง</h3>
+              <ul id="watch-list"></ul>
+            </section>
+            <section>
+              <h3>วิธีเติมพลัง</h3>
+              <p id="growth-text"></p>
+            </section>
+          </div>
+
+          <section class="score-section">
+            <div class="section-head">
+              <h3>คะแนนทั้ง 9 ลักษณ์</h3>
+              <p id="wing-text"></p>
+            </div>
+            <div id="score-bars" class="score-bars"></div>
+          </section>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
